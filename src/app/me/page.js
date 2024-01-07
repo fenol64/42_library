@@ -1,4 +1,5 @@
 "use client";
+import Header from '@/components/Header';
 import { get42User } from '@/services/42';
 import { api } from '@/services/api';
 import { useSearchParams } from 'next/navigation';
@@ -29,7 +30,6 @@ function me() {
         const user_data = localStorage.getItem("user");
         if (!code)
             return;
-        console.log(code, user_data)
         if (user_data)
             setUser(JSON.parse(user_data));
         else
@@ -40,14 +40,9 @@ function me() {
     if (toggleLoading)
         return <div>Loading...</div>
 
-    return (
-        <div>
-            <h1>Olá, {user?.login}</h1>
-            <img src={user?.image?.link} alt="user image" />
-
-
-        </div>
-    );
+    return (<>
+        <Header />
+    </>);
 }
 
 export default me;
