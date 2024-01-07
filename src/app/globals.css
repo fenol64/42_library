@@ -2,11 +2,41 @@
 
 * {
     font-family: 'Poppins', sans-serif;
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
 }
 
 a {
     text-decoration: none;
+}
+
+.login_button_image {
+    background-color: #00a0a0;
+    border-radius: 5px;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login_button span {
+    font-family: 'Poppins', sans-serif;
+    padding: 10px 30px;
+    text-decoration: none !important;
+    font-weight: 900;
+    font-size: 1.2em;
+    color: #fff;
+}
+
+.login_button {
+    background-color: #00babc;
+    border: none;
+    padding: 0;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login_button:hover {
+    background-color: #00a0a0;
+    cursor: pointer;
 }

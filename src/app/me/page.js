@@ -10,9 +10,13 @@ function me() {
 
     const setup = async () => {
         setToggleLoading(true);
-        if (!user) {
+        const storedUser = localStorage.getItem('user');
+        if (storedUser) {
+            setUser(JSON.parse(storedUser));
+        } else {
             const user = await get42User(params.get('token'));
             setUser(user);
+            localStorage.setItem('user', JSON.stringify(user));
         }
         setToggleLoading(false);
     }
@@ -28,6 +32,8 @@ function me() {
         <div>
             <h1>Olá, {user?.login}</h1>
             <img src={user?.image?.link} alt="user image" />
+
+
         </div>
     );
 }
