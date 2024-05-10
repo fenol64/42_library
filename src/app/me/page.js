@@ -27,7 +27,6 @@ function me() {
         const user_data = localStorage.getItem("user");
         if (!code)
             return;
-        console.log(JSON.parse(user_data));
         if (user_data)
             setUser(JSON.parse(user_data));
         else
@@ -47,9 +46,13 @@ function me() {
             </header>
             <div className="main_content">
                 <figure className="image_wrapper ms-2">
-                    <img src={user?.image ? user.image.link : "./image.png"} alt="student image" style={{
-                        width: "200px",
-                    }} />
+                    <div style={{
+                        backgroundImage: `url(${user?.image ? user.image.link : "./image.png"})`,
+                        height: "120px",
+                        width: "120px",
+                        borderRadius: "50%",
+                        backgroundSize: "cover",
+                    }}></div>
                 </figure>
                 <div className="content">
                     <div className="item">
