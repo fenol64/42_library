@@ -4,7 +4,6 @@ import { get42User } from '@/services/42';
 import { api } from '@/services/api';
 import { useSearchParams } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
-
 function me() {
     const [user, setUser] = useState(null);
     const [toggleLoading, setToggleLoading] = useState(false);
@@ -30,6 +29,7 @@ function me() {
         const user_data = localStorage.getItem("user");
         if (!code)
             return;
+        console.log(JSON.parse(user_data));
         if (user_data)
             setUser(JSON.parse(user_data));
         else
@@ -41,7 +41,40 @@ function me() {
         return <div>Loading...</div>
 
     return (<>
-        <Header />
+    <section className="sid_card">
+            <header className="s_header">
+                <img src="./image.png" className="image_logo" alt="student image" />
+                carteira de estudante
+            </header>
+            <div className="main_content">
+                <figure className="image_wrapper">
+                    <img src={user?.image ? user.image.link : "./image.png"} alt="student image" style={{
+                        width: "200px",
+                    }} />
+                </figure>
+                <div className="content">
+                    <div className="item">
+                        <span>Nome:</span>
+                        {user ? user.displayname : "Fulano de tal"}
+                    </div>
+                    <div className="col_wrapper">
+                        <div className="item">
+                            <span>ID:</span>
+                            {user ? user.login : "000000"}
+                        </div>
+                        <div className="item">
+                            <span>validade:</span>
+                            12/{new Date().getFullYear() + 1}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div className="student_wrapper">Curso: Engenharia de Software</div>
+    </section>
+
+    <section className="sid_card back">
+        <img src="./qrcode.png" className="qrcode"/>
+    </section>
     </>);
 }
 

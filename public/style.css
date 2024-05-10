@@ -1,0 +1,104 @@
+@font-face {
+    font-family: 'my futura pt';
+    src: url('./Futura/FuturaPTBold.otf');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'my futura pt', sans-serif;
+    color: #fff;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.sid_card {
+    background-color: #000;
+    border-radius: 10px;
+    padding: 5px;
+    width: 450px;
+    height: 250px;
+
+    border: 1px solid #000;
+    overflow: hidden;
+    background-image: url('./header.jpg');
+    background-size: cover;
+    margin-bottom: 5px;
+}
+
+.back {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.qrcode {
+    width: 200px;
+    height: 200px;
+    margin: 10px;
+    border-radius: 20px;
+}
+
+.s_header {
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.content {
+    width: 67%;
+}
+
+.image_logo {
+    max-width: 80px;
+    border-radius: 10px;
+}
+
+.col_wrapper {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 78px 0 0 ;
+}
+
+.image_wrapper {
+    width: 100px;
+    height: 100px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.main_content{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.student_wrapper {
+    height: 22%;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+}
+.item {
+    margin: 5px;
+}
+
+.item>span {
+    display: block;
+}
