@@ -1,6 +1,4 @@
 "use client";
-import Header from '@/components/Header';
-import { get42User } from '@/services/42';
 import { api } from '@/services/api';
 import { useSearchParams } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
@@ -40,14 +38,15 @@ function me() {
     if (toggleLoading)
         return <div>Loading...</div>
 
-    return (<>
-    <section className="sid_card">
+    return (<div className='main'>
+        <h1 className='text-black'>Carteirinha 42</h1>
+    <section className="sid_card px-2">
             <header className="s_header">
                 <img src="./image.png" className="image_logo" alt="student image" />
                 carteira de estudante
             </header>
             <div className="main_content">
-                <figure className="image_wrapper">
+                <figure className="image_wrapper ms-2">
                     <img src={user?.image ? user.image.link : "./image.png"} alt="student image" style={{
                         width: "200px",
                     }} />
@@ -75,7 +74,7 @@ function me() {
     <section className="sid_card back">
         <img src="./qrcode.png" className="qrcode"/>
     </section>
-    </>);
+    </div>);
 }
 
 export default me;
