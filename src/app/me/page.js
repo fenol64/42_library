@@ -22,11 +22,16 @@ function me() {
 
     }
 
+    const extractNumber = (str) => {
+        return str.match(/\d+/g).join('').substring(0, 12);
+    }
+
     useEffect(() => {
         const code = params.get("code");
         const user_data = localStorage.getItem("user");
         if (!code)
             return;
+        console.log(JSON.parse(user_data))
         if (user_data)
             setUser(JSON.parse(user_data));
         else
@@ -50,7 +55,7 @@ function me() {
                         backgroundImage: `url(${user?.image ? user.image.link : "./image.png"})`,
                         height: "120px",
                         width: "120px",
-                        borderRadius: "50%",
+                        borderRadius: 10,
                         backgroundSize: "cover",
                     }}></div>
                 </figure>
@@ -60,6 +65,8 @@ function me() {
                         {user ? user.displayname : "Fulano de tal"}
                     </div>
                     <div className="col_wrapper">
+                    </div>
+                    <div className="col_wrapper">
                         <div className="item">
                             <span>ID:</span>
                             {user ? user.login : "000000"}
@@ -67,6 +74,10 @@ function me() {
                         <div className="item">
                             <span>validade:</span>
                             12/{new Date().getFullYear() + 1}
+                        </div>
+                        <div className="item">
+                            <span>matricula:</span>
+                            {user?.created_at ? extractNumber(user.created_at) : "000000"}
                         </div>
                     </div>
                 </div>
